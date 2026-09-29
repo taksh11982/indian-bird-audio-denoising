@@ -1,0 +1,11 @@
+# Regenerable / large local data. Small CSVs at data/ root
+# (raw_manifest.csv, audit_triage.csv, gold_test_150.csv,
+# iBC53-Cleaned-Metadata.csv) stay committable.
+data/raw/
+data/chunks_48k/
+data/chunks_16k/
+data/birdnet_scores/
+data/xc_refs/
+__pycache__/
+.venv/
+*.pyc
