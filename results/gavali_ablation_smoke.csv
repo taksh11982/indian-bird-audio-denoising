@@ -1,0 +1,5 @@
+run,split,n_train,n_eval,accuracy,macro_f1
+A-raw,val,200,60,0.0667,0.0554
+A-raw,test,200,60,0.0833,0.0747
+C-cleaned,val,139,38,0.0789,0.1231
+C-cleaned,test,139,60,0.0667,0.0528

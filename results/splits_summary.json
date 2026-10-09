@@ -1,0 +1,27 @@
+{
+  "cleaned11_nogold": 2268,
+  "cleaned_by_split": {
+    "test": 172,
+    "train": 1837,
+    "val": 259
+  },
+  "raw11_nogold": 3209,
+  "raw_by_split": {
+    "test": 234,
+    "train": 2563,
+    "val": 412
+  },
+  "species": [
+    "Arborophila torqueola",
+    "Cuculus micropterus",
+    "Cyornis unicolor",
+    "Glaucidium cuculoides",
+    "Liocichla phoenicea",
+    "Pellorneum ruficeps",
+    "Pnoepyga pusilla",
+    "Pomatorhinus ruficollis",
+    "Psilopogon lineatus",
+    "Psittacula eupatria",
+    "Rimator malacoptilus"
+  ]
+}

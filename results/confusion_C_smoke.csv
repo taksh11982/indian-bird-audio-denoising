@@ -1,0 +1,12 @@
+true/pred,Arborophila torqueola,Cuculus micropterus,Cyornis unicolor,Glaucidium cuculoides,Liocichla phoenicea,Pellorneum ruficeps,Pnoepyga pusilla,Pomatorhinus ruficollis,Psilopogon lineatus,Psittacula eupatria,Rimator malacoptilus
+Arborophila torqueola,1,1,0,0,0,0,1,0,1,0,1
+Cuculus micropterus,0,1,0,1,1,0,2,1,2,0,0
+Cyornis unicolor,0,0,1,0,2,1,1,0,1,0,2
+Glaucidium cuculoides,0,0,1,0,0,0,1,0,0,0,1
+Liocichla phoenicea,0,1,0,0,0,0,1,0,0,0,0
+Pellorneum ruficeps,1,1,1,1,1,1,1,4,3,0,2
+Pnoepyga pusilla,1,0,0,0,0,0,0,0,1,0,0
+Pomatorhinus ruficollis,0,3,0,0,2,1,0,0,0,0,1
+Psilopogon lineatus,0,0,0,0,1,0,0,0,0,0,0
+Psittacula eupatria,1,2,0,1,1,1,0,0,0,0,0
+Rimator malacoptilus,2,0,0,0,0,0,0,0,0,0,0
