@@ -49,7 +49,7 @@ Grade definitions: A = pristine target; B = target present, moderate SNR; C = he
 
 ```
 data/{raw_manifest.csv,chunks_48k/,chunks_16k/,birdnet_scores/,audit_triage.csv,xc_refs/,gold_test_150.csv,iBC53-Cleaned-Metadata.csv}
-src/{ingest.py,chunk.py,audit.py,features.py,train.py,evaluate.py}
+src/{ingest.py,chunking.py,audit.py,features.py,train.py,evaluate.py}
 notebooks/  figures/  results/  paper/  .agents/
 ```
 
