@@ -1,8 +1,8 @@
 quantity,value,note
-quantity,value,note
-quantity,value,note
-quantity,value,note
-quantity,value,note
-quantity,value,note
-quantity,value,note
-quantity,value,note
+observed net gain (clips),3,Model C correct minus Model A correct on 234 shared clips
+best case McNemar chi2 on this test set,1.3333,assumes only 3 clips are discordant and all favour C
+chi2 needed for p<0.05,3.841,1 degree of freedom
+smallest p achievable on 234 clips,0.2482,significance is unreachable however the pairs fall
+test clips needed (discordant fraction 5%),1320,"same effect size 1.2821%/clip, McNemar p<0.05"
+test clips needed (discordant fraction 10%),2491,"same effect size 1.2821%/clip, McNemar p<0.05"
+test clips needed (discordant fraction 20%),4829,"same effect size 1.2821%/clip, McNemar p<0.05"

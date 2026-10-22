@@ -120,3 +120,34 @@ python src/evidence_label_noise.py # -> results/label_noise_evidence.md
 python src/noise_scaling.py --epochs 30 --device cuda
 python src/eval_trusted_test.py     # -> results/clean_test_eval.csv
 ```
+
+## 10. The three analyses added after the first draft
+
+1. **Per-class behaviour** (`results/per_class_analysis.csv`, report Figure 7
+   and Table 6): the +0.0096 Macro-F1 is a **net** figure. Recall moves by as
+   much as +0.40 (`Psilopogon lineatus`, n = 5) and -0.46
+   (`Arborophila torqueola`, n = 13); macro recall is flat (0.4246 vs 0.4223).
+   We report this instead of hiding it - it is the honest picture of an
+   underpowered test set.
+2. **Mechanism check** (`results/mechanism_check.csv`, Figure 8): the recall
+   gain correlates positively with how dirty the species' training labels
+   were (Pearson r = +0.296, Spearman rho = +0.236, n = 11). Direction is as
+   predicted, size is not significant - stated as consistency, not proof.
+3. **Statistical power** (`results/statistical_power.csv`, Figure 9 and
+   Table 7): with a net +3 discordant clips, the best possible McNemar
+   statistic is chi-squared = 1.333 (p = 0.248); **no pairing of these 234
+   clips can reach p < 0.05**. Reaching significance at the observed effect
+   needs 1,320 / 2,491 / 4,829 clips for 5 / 10 / 20 % discordance. This is
+   why we propose 5-fold recording-level CV and the noise-scaling curve.
+
+The three-arm control (A-full vs R-random-subset vs C-cleaned, `Table 8`,
+Figure 11) remains the decisive experiment and still needs the Colab run.
+
+## 11. Report status
+
+`Report Format - Project2- Sem7 .docx` and
+`Indian bird audio denoising report.pdf` are now the same document:
+35 pages, 11 embedded figures, 8 tables, refreshed Table of Contents,
+List of Tables and List of Figures with real page numbers (Word SEQ fields).
+Rebuild with `python src/build_report.py <pristine_template.docx>` and export
+with `python src/export_report_pdf.py "Indian bird audio denoising report.pdf"`.

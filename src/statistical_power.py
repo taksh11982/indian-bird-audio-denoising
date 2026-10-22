@@ -84,8 +84,8 @@ def main() -> int:
 
     with open(OUTDIR / "statistical_power.csv", "w", newline="",
               encoding="utf-8") as fh:
-        w = csv.writer(fh)
-        w.writerow(["quantity", "value", "note"])
+        w = csv.DictWriter(fh, fieldnames=["quantity", "value", "note"])
+        w.writeheader()
         w.writerows(rows)
     for r in rows:
         print(f"{r['quantity']:52s} {str(r['value']):>10s}  {r['note']}")
