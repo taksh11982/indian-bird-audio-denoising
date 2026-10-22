@@ -5,6 +5,7 @@ data/raw/
 data/chunks_48k/
 data/chunks_16k/
 data/birdnet_scores/
+data/separated/
 data/xc_refs/
 __pycache__/
 .venv/
