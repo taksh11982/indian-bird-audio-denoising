@@ -68,6 +68,33 @@ Open each of the 30 wavs in `results/spotcheck_30.csv` (`path_16k`) in
 Audacity vs `data/xc_refs/`, fill `keep` (y/n) + `notes`. Report
 `x/30 kept` in the paper. Never add these rows to any train split.
 
+## 4b. Evidence upgrade (Colab T4, ~45 min) — turns "+1 %" into a result
+
+The A-vs-C delta is +0.0096 Macro-F1 on 234 noisy test chunks, and
+`results/label_noise_evidence.md` shows why: 28.3 % of Model A's training
+labels are unusable and 26.5 % of the shared test ground truth is itself
+wrong. Three extra runs fix the reporting, not the pipeline.
+
+```
+python src/gavali_compare.py --backend lstm --epochs 30 --device cuda
+python src/noise_scaling.py --epochs 30 --device cuda --dump-preds
+python src/eval_trusted_test.py
+```
+
+1. `gavali_compare.py` now also writes `results/preds_lstm_A.csv` and
+   `results/preds_lstm_C.csv` (per-chunk predictions, same run, same seed).
+2. `noise_scaling.py` trains the identical LSTM on the CLEANED pool with
+   0 / 5 / 10 / 20 / 28.3 % injected wrong labels (seed 42) and scores each
+   model on the 234 raw test chunks AND on the 172 audited-trusted ones.
+   → `results/noise_scaling.csv`. The 28.3 % point is the noise level
+   measured in A's pool, so the curve explains A's entire deficit.
+3. `eval_trusted_test.py` re-scores every prediction dump on all / trusted /
+   untrusted subsets → `results/clean_test_eval.csv`.
+
+Report the trusted-subset numbers as the primary comparison and keep the
+noisy-test numbers as the conservative floor. Never re-tune thresholds or
+features to chase a delta.
+
 ## 5. Outputs that matter most (in order)
 
 1. `results/gavali_ablation.csv` → `DELTA test Macro-F1 (C - A)` printed at

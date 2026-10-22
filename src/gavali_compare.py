@@ -89,6 +89,16 @@ def save_confusion(cm, classes, path_csv, path_png, title):
     plt.close(fig)
 
 
+def dump_preds(ids, y, p, classes, path):
+    """Per-chunk predictions so the clean-test analysis can be done offline."""
+    with open(path, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["chunk_id", "species", "pred", "correct"])
+        for cid, yi, pi in zip(ids, y, p):
+            w.writerow([cid, classes[int(yi)], classes[int(pi)],
+                        int(yi == pi)])
+
+
 def cap_rows(rows, cap, seed=42):
     """Deterministic smoke subset (keeps file order stable, seed 42)."""
     if cap <= 0 or len(rows) <= cap:
@@ -160,7 +170,7 @@ def run_lstm(classes, label_to_idx, tri, idx, rows, epochs, device):
 
     out, cms = [], {}
     te_rows = [r for r in rows if r["split"] == "test" and r["in_raw"] == "1"]
-    Xte_s, _, yte, _ = extract(te_rows, idx, "in_raw", label_to_idx)
+    Xte_s, _, yte, te_ids = extract(te_rows, idx, "in_raw", label_to_idx)
     te_loader = DataLoader(TensorDataset(torch.from_numpy(Xte_s),
                                          torch.from_numpy(yte)),
                            batch_size=64)
@@ -209,6 +219,8 @@ def run_lstm(classes, label_to_idx, tri, idx, rows, epochs, device):
             for xb, _ in te_loader:
                 preds.append(model(xb.to(device)).argmax(1).cpu().numpy())
         p = np.concatenate(preds)
+        dump_preds(te_ids, yte, p, classes, OUTDIR /
+                   f"preds_lstm_{run[0]}.csv")
         out.append({"run": run, "split": "test", "n_train": len(ytr),
                     "n_eval": len(yte),
                     "accuracy": round(float(accuracy_score(yte, p)), 4),

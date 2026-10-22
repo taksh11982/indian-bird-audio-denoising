@@ -1,0 +1,5 @@
+set,n_chunks,concordant,empty,ambiguous,intruder,unusable,unusable_pct
+A-train (raw labels),2563,1837,546,174,6,726,28.3
+C-train (cleaned labels),1837,1837,0,0,0,0,0.0
+val (raw labels),412,259,125,28,0,153,37.1
+"test (raw labels, used by A and C)",234,172,44,18,0,62,26.5

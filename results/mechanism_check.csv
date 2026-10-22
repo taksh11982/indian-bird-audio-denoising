@@ -1,0 +1,12 @@
+species,clean_label_pct,delta_recall_pp,n_test,pearson_r,spearman_rho
+Psilopogon lineatus,60.0,40.0,5,0.2962,0.2364
+Pnoepyga pusilla,100.0,23.1,13,0.2962,0.2364
+Pellorneum ruficeps,61.4,14.3,70,0.2962,0.2364
+Pomatorhinus ruficollis,87.5,12.5,24,0.2962,0.2364
+Cuculus micropterus,100.0,4.0,25,0.2962,0.2364
+Liocichla phoenicea,58.3,0.0,12,0.2962,0.2364
+Rimator malacoptilus,83.3,0.0,6,0.2962,0.2364
+Psittacula eupatria,67.9,-10.7,28,0.2962,0.2364
+Cyornis unicolor,82.8,-17.2,29,0.2962,0.2364
+Glaucidium cuculoides,44.4,-22.2,9,0.2962,0.2364
+Arborophila torqueola,61.5,-46.2,13,0.2962,0.2364
